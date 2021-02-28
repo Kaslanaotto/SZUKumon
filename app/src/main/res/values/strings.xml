@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">SZUKumon</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="nav_header_title">SZUKumon</string>
+    <string name="nav_header_subtitle" translatable="false">www.szu.edu.cn</string>
+    <string name="nav_header_desc" translatable="false">Navigation header</string>
+    <string name="action_copy">Copy Link</string>
+    <string name="action_refresh">Refresh</string>
+
+    <string name="menu_kumon">Kumon</string>
+    <string name="menu_feedback">Feedback</string>
+    <string name="menu_about">About</string>
+    <string name="menu_lobby">Lobby</string>
+    <string name="menu_blackboard" translatable="false">BlackBoard</string>
+    <string name="menu_lessons">Courses</string>
+    <string name="menu_library">Library</string>
+    <string name="menu_idcard">ID Card</string>
+
+    <string name="menu_connect">Campus Web Connect</string>
+
+    <string name="kumon_education">Education</string>
+    <string name="kumon_overhead">Overhead</string>
+    <string name="kumon_lecture">Lecture</string>
+    <string name="kumon_research">Research</string>
+    <string name="kumon_students">Students</string>
+    <string name="kumon_policy">Policy</string>
+    <string name="kumon_campus">Campus</string>
+    <string name="kumon_latest">Latest</string>
+</resources>

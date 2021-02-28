@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:title="Access">
+            <menu>
+                <item
+                    android:id="@+id/nav_kumon"
+                    android:icon="@drawable/ic_baseline_home_24"
+                    android:title="@string/menu_kumon" />
+                <item
+                    android:id="@+id/nav_lobby"
+                    android:icon="@drawable/ic_baseline_business_center_24"
+                    android:title="@string/menu_lobby" />
+                <item
+                    android:id="@+id/nav_blackboard"
+                    android:icon="@drawable/ic_baseline_assignment_24"
+                    android:title="@string/menu_blackboard" />
+                <item
+                    android:id="@+id/nav_lessons"
+                    android:icon="@drawable/ic_baseline_class_24"
+                    android:title="@string/menu_lessons" />
+                <item
+                    android:id="@+id/nav_idcard"
+                    android:icon="@drawable/ic_baseline_perm_identity_24"
+                    android:title="@string/menu_idcard" />
+                <item
+                    android:id="@+id/nav_library"
+                    android:icon="@drawable/ic_baseline_library_books_24"
+                    android:title="@string/menu_library" />
+                <item
+                    android:id="@+id/nav_feedback"
+                    android:icon="@drawable/ic_baseline_feedback_24"
+                    android:title="@string/menu_feedback" />
+                <item
+                    android:id="@+id/nav_about"
+                    android:icon="@drawable/ic_baseline_info_24"
+                    android:title="@string/menu_about" />
+            </menu>
+        </item>
+
+        <item
+            android:title="Tools">
+            <menu>
+                <item
+                    android:id="@+id/nav_connect"
+                    android:icon="@drawable/ic_baseline_wifi_24"
+                    android:title="@string/menu_connect" />
+            </menu>
+        </item>
+    </group>
+</menu>

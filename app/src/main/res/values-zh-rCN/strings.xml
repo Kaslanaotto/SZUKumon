@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">深大</string>
+    <string name="nav_header_title">深圳大学</string>
+    <string name="action_copy">复制链接</string>
+    <string name="action_refresh">刷新</string>
+    <string name="menu_kumon">公文通</string>
+    <string name="menu_feedback">反馈</string>
+    <string name="menu_about">关于</string>
+    <string name="menu_lobby">办事大厅</string>
+    <string name="menu_lessons">选课</string>
+    <string name="menu_library">图书馆</string>
+    <string name="menu_idcard">校园卡</string>
+    <string name="menu_connect">登录校园网</string>
+    <string name="kumon_education">教务教学</string>
+    <string name="kumon_overhead">顶置推荐</string>
+    <string name="kumon_lecture">学术讲座</string>
+    <string name="kumon_research">科研动态</string>
+    <string name="kumon_students">学生工作</string>
+    <string name="kumon_policy">党务行政</string>
+    <string name="kumon_campus">校园生活</string>
+    <string name="kumon_latest">最新发布</string>
+</resources>

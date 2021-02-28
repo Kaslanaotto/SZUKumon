@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_kumon">
+
+    <fragment
+        android:id="@+id/nav_kumon"
+        android:name="com.wjv.szukumon.ui.home.HomeFragment"
+        android:label="@string/menu_kumon"
+        tools:layout="@layout/fragment_home" >
+
+        <action
+            android:id="@+id/action_nav_home_to_educationFragment"
+            app:destination="@id/educationFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_researchFragment"
+            app:destination="@id/researchFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_campusFragment"
+            app:destination="@id/campusFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_studentsFragment"
+            app:destination="@id/studentsFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_overheadFragment"
+            app:destination="@id/overheadFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_lectureFragment"
+            app:destination="@id/lectureFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_policyFragment"
+            app:destination="@id/policyFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_latestFragment"
+            app:destination="@id/latestFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_feedback"
+        android:name="com.wjv.szukumon.ui.feedback.FeedbackFragment"
+        android:label="@string/menu_feedback"
+        tools:layout="@layout/fragment_feedback" />
+
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.wjv.szukumon.ui.about.AboutFragment"
+        android:label="@string/menu_about"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/educationFragment"
+        android:name="com.wjv.szukumon.ui.kumon.EducationFragment"
+        android:label="@string/kumon_education"
+        tools:layout="@layout/fragment_education" >
+        <action
+            android:id="@+id/action_educationFragment_to_nav_home"
+            app:destination="@id/nav_kumon" />
+    </fragment>
+    <fragment
+        android:id="@+id/campusFragment"
+        android:name="com.wjv.szukumon.ui.kumon.CampusFragment"
+        android:label="@string/kumon_campus"
+        tools:layout="@layout/fragment_campus" >
+        <action
+            android:id="@+id/action_campusFragment_to_nav_home"
+            app:destination="@id/nav_kumon" />
+    </fragment>
+    <fragment
+        android:id="@+id/latestFragment"
+        android:name="com.wjv.szukumon.ui.kumon.LatestFragment"
+        android:label="@string/kumon_latest"
+        tools:layout="@layout/fragment_latest" >
+        <action
+            android:id="@+id/action_latestFragment_to_nav_home"
+            app:destination="@id/nav_kumon" />
+    </fragment>
+    <fragment
+        android:id="@+id/lectureFragment"
+        android:name="com.wjv.szukumon.ui.kumon.LectureFragment"
+        android:label="@string/kumon_lecture"
+        tools:layout="@layout/fragment_lecture" >
+        <action
+            android:id="@+id/action_lectureFragment_to_nav_home"
+            app:destination="@id/nav_kumon" />
+    </fragment>
+    <fragment
+        android:id="@+id/overheadFragment"
+        android:name="com.wjv.szukumon.ui.kumon.OverheadFragment"
+        android:label="@string/kumon_overhead"
+        tools:layout="@layout/fragment_overhead" >
+        <action
+            android:id="@+id/action_overheadFragment_to_nav_home"
+            app:destination="@id/nav_kumon" />
+    </fragment>
+    <fragment
+        android:id="@+id/policyFragment"
+        android:name="com.wjv.szukumon.ui.kumon.PolicyFragment"
+        android:label="@string/kumon_policy"
+        tools:layout="@layout/fragment_policy" >
+        <action
+            android:id="@+id/action_policyFragment_to_nav_home"
+            app:destination="@id/nav_kumon" />
+    </fragment>
+    <fragment
+        android:id="@+id/researchFragment"
+        android:name="com.wjv.szukumon.ui.kumon.ResearchFragment"
+        android:label="@string/kumon_research"
+        tools:layout="@layout/fragment_research" >
+        <action
+            android:id="@+id/action_researchFragment_to_nav_home"
+            app:destination="@id/nav_kumon" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentsFragment"
+        android:name="com.wjv.szukumon.ui.kumon.StudentsFragment"
+        android:label="@string/kumon_students"
+        tools:layout="@layout/fragment_students" >
+        <action
+            android:id="@+id/action_studentsFragment_to_nav_home"
+            app:destination="@id/nav_kumon" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_lobby"
+        android:name="com.wjv.szukumon.ui.lobby.LobbyFragment"
+        android:label="@string/menu_lobby"
+        tools:layout="@layout/fragment_lobby" />
+    <fragment
+        android:id="@+id/nav_connect"
+        android:name="com.wjv.szukumon.ui.connect.ConnectFragment"
+        android:label="@string/menu_connect"
+        tools:layout="@layout/fragment_connect" />
+    <fragment
+        android:id="@+id/nav_blackboard"
+        android:name="com.wjv.szukumon.ui.blackboard.BlackBoardFragment"
+        android:label="@string/menu_blackboard"
+        tools:layout="@layout/fragment_black_board" />
+    <fragment
+        android:id="@+id/nav_idcard"
+        android:name="com.wjv.szukumon.ui.idcard.IDCardFragment"
+        android:label="@string/menu_idcard"
+        tools:layout="@layout/fragment_idcard" />
+    <fragment
+        android:id="@+id/nav_lessons"
+        android:name="com.wjv.szukumon.ui.lessons.LessonsFragment"
+        android:label="@string/menu_lessons"
+        tools:layout="@layout/fragment_lessons" />
+    <fragment
+        android:id="@+id/nav_library"
+        android:name="com.wjv.szukumon.ui.library.LibraryFragment"
+        android:label="@string/menu_library"
+        tools:layout="@layout/fragment_library" />
+</navigation>
