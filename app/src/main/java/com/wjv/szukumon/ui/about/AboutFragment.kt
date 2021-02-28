@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -37,6 +38,12 @@ class AboutFragment : Fragment() {
         val fab = view?.findViewById<FloatingActionButton>(R.id.students_refresh)
         fab?.setOnClickListener {
             val clip: ClipData = ClipData.newPlainText("WeChat_ID", "wjv_0510ln")
+            clipboard.setPrimaryClip(clip)
+        }
+
+        val btn_github = view?.findViewById<Button>(R.id.button_github)
+        btn_github?.setOnClickListener {
+            val clip: ClipData = ClipData.newPlainText("Github", "https://github.com/Kaslanaotto/SZUKumon")
             clipboard.setPrimaryClip(clip)
         }
     }

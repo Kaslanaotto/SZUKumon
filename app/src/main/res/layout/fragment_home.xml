@@ -21,14 +21,14 @@
                 android:id="@+id/button1"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:background="#F396B5"
+                android:background="#EDB0C5"
                 android:text="@string/kumon_latest" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button2"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:background="#F396B5"
+                android:background="#EDB0C5"
                 android:text="@string/kumon_overhead" />
 
         </TableRow>
@@ -41,14 +41,14 @@
                 android:id="@+id/button3"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:background="#F396B5"
+                android:background="#EDB0C5"
                 android:text="@string/kumon_education" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button4"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:background="#F396B5"
+                android:background="#EDB0C5"
                 android:text="@string/kumon_lecture" />
 
         </TableRow>
@@ -61,14 +61,14 @@
                 android:id="@+id/button5"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:background="#F396B5"
+                android:background="#EDB0C5"
                 android:text="@string/kumon_students" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button6"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:background="#F396B5"
+                android:background="#EDB0C5"
                 android:text="@string/kumon_research" />
 
         </TableRow>
@@ -81,14 +81,14 @@
                 android:id="@+id/button7"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:background="#F396B5"
+                android:background="#EDB0C5"
                 android:text="@string/kumon_policy" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button8"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:background="#F396B5"
+                android:background="#EDB0C5"
                 android:text="@string/kumon_campus" />
 
         </TableRow>

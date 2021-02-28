@@ -41,7 +41,7 @@ class LessonsFragment : Fragment() {
         webView?.settings?.displayZoomControls = false
         webView?.settings?.useWideViewPort = true
         webView?.settings?.loadWithOverviewMode = true
-        webView?.settings?.textZoom = 150
+        webView?.settings?.textZoom = 100
         webView?.webViewClient = WebViewClient()
         webView?.loadUrl(url)
 
