@@ -12,7 +12,7 @@ android {
         minSdkVersion 26
         targetSdkVersion 30
         versionCode 1
-        versionName "0.9.6.0228"
+        versionName "1.0.0.0302"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -34,6 +34,12 @@ android {
 
 dependencies {
 
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
+
+
+    implementation 'com.google.code.gson:gson:2.8.6'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.appcompat:appcompat:1.2.0'
@@ -46,6 +52,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.3'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.3'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.annotation:annotation:1.1.0'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'

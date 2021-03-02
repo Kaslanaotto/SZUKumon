@@ -16,6 +16,7 @@ import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
 import android.webkit.WebViewClient
 import android.widget.Button
+import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class EducationFragment : Fragment() {
@@ -53,6 +54,8 @@ class EducationFragment : Fragment() {
         val fab = view?.findViewById<FloatingActionButton>(R.id.education_refresh)
         fab?.setOnClickListener {
             webView?.reload()
+            val appContext = context?.applicationContext
+            Toast.makeText(appContext, getString(R.string.refresh_hint), Toast.LENGTH_SHORT).show()
         }
         val fab2 = view?.findViewById<FloatingActionButton>(R.id.education_back)
         fab2?.setOnClickListener {
@@ -62,6 +65,8 @@ class EducationFragment : Fragment() {
         fab3?.setOnClickListener {
             val clip: ClipData = ClipData.newPlainText("Current URL", webView?.url)
             clipboard.setPrimaryClip(clip)
+            val appContext = context?.applicationContext
+            Toast.makeText(appContext, getString(R.string.copy_hint), Toast.LENGTH_SHORT).show()
         }
     }
 }

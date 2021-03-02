@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.wjv.szukumon.R
 
@@ -47,6 +48,8 @@ class BlackBoardFragment : Fragment() {
         val fab = view?.findViewById<FloatingActionButton>(R.id.blackboard_refresh)
         fab?.setOnClickListener {
             webView?.reload()
+            val appContext = context?.applicationContext
+            Toast.makeText(appContext, getString(R.string.refresh_hint), Toast.LENGTH_SHORT).show()
         }
         val fab2 = view?.findViewById<FloatingActionButton>(R.id.blackboard_back)
         fab2?.setOnClickListener {
@@ -56,6 +59,8 @@ class BlackBoardFragment : Fragment() {
         fab3?.setOnClickListener {
             val clip: ClipData = ClipData.newPlainText("Current URL", webView?.url)
             clipboard.setPrimaryClip(clip)
+            val appContext = context?.applicationContext
+            Toast.makeText(appContext, getString(R.string.copy_hint), Toast.LENGTH_SHORT).show()
         }
     }
 

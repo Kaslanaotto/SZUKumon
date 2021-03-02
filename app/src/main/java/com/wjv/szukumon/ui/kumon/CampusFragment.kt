@@ -8,6 +8,7 @@ import android.view.*
 import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -55,6 +56,8 @@ class CampusFragment : Fragment() {
         val fab = view?.findViewById<FloatingActionButton>(R.id.campus_refresh)
         fab?.setOnClickListener {
             webView?.reload()
+            val appContext = context?.applicationContext
+            Toast.makeText(appContext, getString(R.string.refresh_hint), Toast.LENGTH_SHORT).show()
         }
         val fab2 = view?.findViewById<FloatingActionButton>(R.id.campus_back)
         fab2?.setOnClickListener {
@@ -64,6 +67,8 @@ class CampusFragment : Fragment() {
         fab3?.setOnClickListener {
             val clip: ClipData = ClipData.newPlainText("Current URL", webView?.url)
             clipboard.setPrimaryClip(clip)
+            val appContext = context?.applicationContext
+            Toast.makeText(appContext, getString(R.string.copy_hint), Toast.LENGTH_SHORT).show()
         }
     }
 }
