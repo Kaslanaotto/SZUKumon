@@ -79,7 +79,7 @@ class LoginFragment : Fragment() {
             }
 
             override fun afterTextChanged(s: Editable) {
-
+                // ignore
             }
         }
         usernameEditText.addTextChangedListener(afterTextChangedListener)
@@ -94,7 +94,7 @@ class LoginFragment : Fragment() {
             //loginViewModel.login(usernameEditText.text.toString(), passwordEditText.text.toString())
 
             val retrofit = Retrofit.Builder()
-                    .baseUrl("http://dummy.restapiexample.com")
+                    .baseUrl("https://drcom.szu.edu.cn/a70.htm?isReback=1")
                     .build()
 
             // Create Service
@@ -102,8 +102,8 @@ class LoginFragment : Fragment() {
 
             // Create JSON using JSONObject
             val jsonObject = JSONObject()
-            jsonObject.put("DDDDD", "392295")
-            jsonObject.put("upass", "05103253")
+            jsonObject.put("DDDDD", usernameEditText.text.toString())
+            jsonObject.put("upass", passwordEditText.text.toString())
             jsonObject.put("R1", "0")
             jsonObject.put("R2", "")
             jsonObject.put("R6", "0")
