@@ -32,6 +32,8 @@ import org.json.JSONObject
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.http.Body
+import retrofit2.http.FieldMap
+import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 import java.io.DataOutputStream
 
@@ -54,8 +56,9 @@ class LoginFragment : Fragment() {
     interface APIService {
         // ...
 
-        @POST("?isReback=1")
-        suspend fun createEmployee(@Body requestBody: RequestBody): Response<ResponseBody>
+        @FormUrlEncoded
+        @POST("/a70.htm?isReback=1")
+        suspend fun createEmployee(@FieldMap params: HashMap<String?, String?>): Response<ResponseBody>
 
         // ...
     }
@@ -93,40 +96,33 @@ class LoginFragment : Fragment() {
             //loginViewModel.login(usernameEditText.text.toString(), passwordEditText.text.toString())
 
             val retrofit = Retrofit.Builder()
-                    .baseUrl("https://drcom.szu.edu.cn/a70.htm/")
+                    .baseUrl("https://drcom.szu.edu.cn")
                     .build()
 
             // Create Service
             val service = retrofit.create(APIService::class.java)
 
-            // Create JSON using JSONObject
-            val jsonObject = JSONObject()
-            jsonObject.put("DDDDD", usernameEditText.text.toString())
-            jsonObject.put("upass", passwordEditText.text.toString())
-            jsonObject.put("R1", "0")
-            jsonObject.put("R2", "")
-            jsonObject.put("R6", "0")
-            jsonObject.put("para", "00")
-            jsonObject.put("0MKKey", "123456")
-            jsonObject.put("buttonClicked", "")
-            jsonObject.put("redirect_url", "")
-            jsonObject.put("err_flag", "")
-            jsonObject.put("username", "")
-            jsonObject.put("password", "")
-            jsonObject.put("user", "")
-            jsonObject.put("cmd", "")
-            jsonObject.put("Login", "")
-            jsonObject.put("R7", "0")
-
-            // Convert JSONObject to String
-            val jsonObjectString = jsonObject.toString()
-
-            // Create RequestBody ( We're not using any converter, like GsonConverter, MoshiConverter e.t.c, that's why we use RequestBody )
-            val requestBody = jsonObjectString.toRequestBody("application/json".toMediaTypeOrNull())
+            val params = HashMap<String?, String?>()
+            params["DDDDD"] = usernameEditText.text.toString()
+            params["upass"] = passwordEditText.text.toString()
+            params["R1"] = "0"
+            params["R2"] = ""
+            params["R6"] = "0"
+            params["para"] = "00"
+            params["0MKKey"] = "123456"
+            params["buttonClicked"] = ""
+            params["redirect_url"] = ""
+            params["err_flag"] = ""
+            params["username"] = ""
+            params["password"] = ""
+            params["user"] = ""
+            params["cmd"] = ""
+            params["Login"] = ""
+            params["R7"] = "0"
 
             CoroutineScope(Dispatchers.IO).launch {
                 // Do the POST request and get response
-                val response = service.createEmployee(requestBody)
+                val response = service.createEmployee(params)
 
                 withContext(Dispatchers.Main) {
                     if (response.isSuccessful) {
