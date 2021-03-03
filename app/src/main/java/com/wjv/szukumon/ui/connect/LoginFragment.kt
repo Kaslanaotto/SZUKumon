@@ -123,25 +123,6 @@ class LoginFragment : Fragment() {
             CoroutineScope(Dispatchers.IO).launch {
                 // Do the POST request and get response
                 val response = service.createEmployee(params)
-
-                withContext(Dispatchers.Main) {
-                    if (response.isSuccessful) {
-
-                        // Convert raw JSON to pretty JSON using GSON library
-                        val gson = GsonBuilder().setPrettyPrinting().create()
-                        val prettyJson = gson.toJson(
-                                JsonParser.parseString(
-                                        response.body()
-                                                ?.string() // About this thread blocking annotation : https://github.com/square/retrofit/issues/3255
-                                )
-                        )
-                        val appContext = context?.applicationContext
-                        Toast.makeText(appContext, prettyJson, Toast.LENGTH_SHORT).show()
-                    } else {
-                        val appContext = context?.applicationContext
-                        Toast.makeText(appContext, "Error".plus(response.code().toString()), Toast.LENGTH_SHORT).show()
-                    }
-                }
             }
         }
 
