@@ -1,9 +1,11 @@
-package com.wjv.szukumon.ui.feedback
+package com.wjv.szukumon.ui.outcampus
 
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,33 +13,29 @@ import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.wjv.szukumon.R
-import com.wjv.szukumon.ui.kumon.CampusViewModel
 
-class FeedbackFragment : Fragment() {
+class OutCampusFragment : Fragment() {
 
-    private lateinit var feedbackViewModel: FeedbackViewModel
+    companion object {
+        fun newInstance() = OutCampusFragment()
+    }
 
-    override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
-        feedbackViewModel =
-                ViewModelProvider(this).get(FeedbackViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_feedback, container, false)
-        return root
+    private lateinit var viewModel: OutCampusViewModel
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_out_campus, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        viewModel = ViewModelProvider(this).get(OutCampusViewModel::class.java)
         // TODO: Use the ViewModel
 
-        val webView = view?.findViewById<WebView>(R.id.feedback_web)
-        val url = "https://github.com/Kaslanaotto/SZUKumon/issues"
+        val webView = view?.findViewById<WebView>(R.id.out_campus_web)
+        val url = "https://webvpn.szu.edu.cn"
         webView?.settings?.javaScriptEnabled = true
         webView?.settings?.setSupportZoom(true)
         webView?.settings?.builtInZoomControls = true
@@ -47,23 +45,22 @@ class FeedbackFragment : Fragment() {
         webView?.settings?.loadWithOverviewMode = true
         webView?.settings?.textZoom = 100
         webView?.webViewClient = WebViewClient()
-        webView?.webChromeClient = WebChromeClient()
         webView?.loadUrl(url)
         webView?.canGoBack()
 
 
         val clipboard: ClipboardManager = activity?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-        val fab = view?.findViewById<FloatingActionButton>(R.id.feedback_refresh)
+        val fab = view?.findViewById<FloatingActionButton>(R.id.out_campus_refresh)
         fab?.setOnClickListener {
             webView?.reload()
             val appContext = context?.applicationContext
             Toast.makeText(appContext, getString(R.string.refresh_hint), Toast.LENGTH_SHORT).show()
         }
-        val fab2 = view?.findViewById<FloatingActionButton>(R.id.feedback_back)
+        val fab2 = view?.findViewById<FloatingActionButton>(R.id.out_campus_back)
         fab2?.setOnClickListener {
             webView?.goBack()
         }
-        val fab3 = view?.findViewById<FloatingActionButton>(R.id.feedback_copy)
+        val fab3 = view?.findViewById<FloatingActionButton>(R.id.out_campus_copy)
         fab3?.setOnClickListener {
             val clip: ClipData = ClipData.newPlainText("Current URL", webView?.url)
             clipboard.setPrimaryClip(clip)
@@ -71,4 +68,5 @@ class FeedbackFragment : Fragment() {
             Toast.makeText(appContext, getString(R.string.copy_hint), Toast.LENGTH_SHORT).show()
         }
     }
+
 }

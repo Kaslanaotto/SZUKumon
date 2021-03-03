@@ -22,6 +22,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:background="#EDB0C5"
+                android:textColor="#FFFFFF"
                 android:text="@string/kumon_latest" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -29,6 +30,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:background="#EDB0C5"
+                android:textColor="#FFFFFF"
                 android:text="@string/kumon_overhead" />
 
         </TableRow>
@@ -42,6 +44,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:background="#EDB0C5"
+                android:textColor="#FFFFFF"
                 android:text="@string/kumon_education" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -49,6 +52,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:background="#EDB0C5"
+                android:textColor="#FFFFFF"
                 android:text="@string/kumon_lecture" />
 
         </TableRow>
@@ -62,6 +66,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:background="#EDB0C5"
+                android:textColor="#FFFFFF"
                 android:text="@string/kumon_students" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -69,6 +74,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:background="#EDB0C5"
+                android:textColor="#FFFFFF"
                 android:text="@string/kumon_research" />
 
         </TableRow>
@@ -82,6 +88,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:background="#EDB0C5"
+                android:textColor="#FFFFFF"
                 android:text="@string/kumon_policy" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -89,6 +96,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:background="#EDB0C5"
+                android:textColor="#FFFFFF"
                 android:text="@string/kumon_campus" />
 
         </TableRow>

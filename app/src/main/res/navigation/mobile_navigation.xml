@@ -151,4 +151,9 @@
         android:name="com.wjv.szukumon.ui.connect.LoginFragment"
         android:label="@string/menu_connect"
         tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/nav_outcampus"
+        android:name="com.wjv.szukumon.ui.outcampus.OutCampusFragment"
+        android:label="@string/menu_outcampus"
+        tools:layout="@layout/fragment_out_campus" />
 </navigation>

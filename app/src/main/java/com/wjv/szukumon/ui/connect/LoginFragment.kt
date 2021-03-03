@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
@@ -67,7 +68,6 @@ class LoginFragment : Fragment() {
         val passwordEditText = view.findViewById<EditText>(R.id.password)
         val classloginButton = view.findViewById<Button>(R.id.classroom_login)
         val dormitoryloginButton = view.findViewById<Button>(R.id.dormitory_login)
-        val loadingProgressBar = view.findViewById<ProgressBar>(R.id.loading)
 
         val afterTextChangedListener = object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
@@ -90,7 +90,6 @@ class LoginFragment : Fragment() {
 
 
         classloginButton.setOnClickListener {
-            loadingProgressBar.visibility = View.VISIBLE
             //loginViewModel.login(usernameEditText.text.toString(), passwordEditText.text.toString())
 
             val retrofit = Retrofit.Builder()
@@ -151,7 +150,6 @@ class LoginFragment : Fragment() {
         }
 
         dormitoryloginButton.setOnClickListener {
-            loadingProgressBar.visibility = View.VISIBLE
 
             val studentid = usernameEditText.text.toString()
             val pwd = passwordEditText.text.toString()
@@ -159,6 +157,7 @@ class LoginFragment : Fragment() {
             val urlb = "&pwd="
             val webView = view.findViewById<WebView>(R.id.backgound_web)
 
+            webView?.webViewClient = WebViewClient()
             webView?.loadUrl(urlf.plus(studentid).plus(urlb).plus(pwd))
         }
     }

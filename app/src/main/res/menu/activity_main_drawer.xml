@@ -32,13 +32,10 @@
                     android:icon="@drawable/ic_baseline_library_books_24"
                     android:title="@string/menu_library" />
                 <item
-                    android:id="@+id/nav_feedback"
-                    android:icon="@drawable/ic_baseline_feedback_24"
-                    android:title="@string/menu_feedback" />
-                <item
-                    android:id="@+id/nav_about"
-                    android:icon="@drawable/ic_baseline_info_24"
-                    android:title="@string/menu_about" />
+                    android:id="@+id/nav_outcampus"
+                    android:icon="@drawable/ic_baseline_vpn_key_24"
+                    android:title="@string/menu_outcampus" />
+
             </menu>
         </item>
 
@@ -49,6 +46,20 @@
                     android:id="@+id/nav_connect"
                     android:icon="@drawable/ic_baseline_wifi_24"
                     android:title="@string/menu_connect" />
+            </menu>
+        </item>
+
+        <item
+            android:title="Others">
+            <menu>
+                <item
+                android:id="@+id/nav_feedback"
+                android:icon="@drawable/ic_baseline_feedback_24"
+                android:title="@string/menu_feedback" />
+                <item
+                    android:id="@+id/nav_about"
+                    android:icon="@drawable/ic_baseline_info_24"
+                    android:title="@string/menu_about" />
             </menu>
         </item>
     </group>

@@ -28,4 +28,5 @@
     <string name="invalid_password">无效密码</string>
     <string name="copy_hint">链接复制成功</string>
     <string name="refresh_hint">页面刷新成功</string>
+    <string name="menu_outcampus">校外访问</string>
 </resources>

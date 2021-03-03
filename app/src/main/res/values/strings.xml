@@ -16,6 +16,7 @@
     <string name="menu_lessons">Courses</string>
     <string name="menu_library">Library</string>
     <string name="menu_idcard">ID Card</string>
+    <string name="menu_outcampus">Out Campus Access</string>
 
     <string name="menu_connect">Campus Web Connect</string>
 
@@ -27,16 +28,17 @@
     <string name="kumon_policy">Policy</string>
     <string name="kumon_campus">Campus</string>
     <string name="kumon_latest">Latest</string>
+
     <!-- Strings related to login -->
     <string name="prompt_email">Card ID</string>
     <string name="prompt_password">Password</string>
     <string name="classroom_sign_in">Classroom Login</string>
     <string name="dormitory_sign_in">Dormitory Login</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome!"</string>
+    <string name="action_sign_in_short" translatable="false">Sign in</string>
+    <string name="welcome" translatable="false">"Welcome!"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
+    <string name="login_failed" translatable="false">"Login failed"</string>
     <string name="copy_hint">current URL copied</string>
     <string name="refresh_hint">Page refreshed</string>
 </resources>

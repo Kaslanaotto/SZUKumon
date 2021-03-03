@@ -36,10 +36,12 @@ class AboutFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         val clipboard: ClipboardManager = activity?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-        val fab = view?.findViewById<FloatingActionButton>(R.id.students_refresh)
+        val fab = view?.findViewById<FloatingActionButton>(R.id.fab_contact)
         fab?.setOnClickListener {
-            val clip: ClipData = ClipData.newPlainText("WeChatID", "wjv_0510ln")
+            val clip: ClipData = ClipData.newPlainText("WeChat_ID", "wjv_0510ln")
             clipboard.setPrimaryClip(clip)
+            val appContext = context?.applicationContext
+            Toast.makeText(appContext, "WeChat_ID: wjv_0510ln copied!", Toast.LENGTH_LONG).show()
         }
 
         val btn_github = view?.findViewById<Button>(R.id.button_github)
@@ -48,6 +50,13 @@ class AboutFragment : Fragment() {
             clipboard.setPrimaryClip(clip)
             val appContext = context?.applicationContext
             Toast.makeText(appContext, getString(R.string.copy_hint), Toast.LENGTH_SHORT).show()
+        }
+        val btnUpdate = view?.findViewById<Button>(R.id.button)
+        btnUpdate?.setOnClickListener {
+            val clip: ClipData = ClipData.newPlainText("Link", "链接:https://pan.baidu.com/s/17YMKNoGFBf7c16VY-RUIlg 提取码:6p1m")
+            clipboard.setPrimaryClip(clip)
+            val appContext = context?.applicationContext
+            Toast.makeText(appContext, "打开手机百度网盘查看分享", Toast.LENGTH_LONG).show()
         }
     }
 }
