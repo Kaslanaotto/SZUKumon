@@ -3,6 +3,8 @@ package com.wjv.szukumon.ui.lobby
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -13,6 +15,7 @@ import android.webkit.WebChromeClient
 import android.webkit.WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Button
 import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.wjv.szukumon.R
@@ -35,41 +38,14 @@ class LobbyFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val webView = view?.findViewById<WebView>(R.id.lobby_web)
-        val url = "http://ehall.szu.edu.cn/new/index.html"
-        webView?.settings?.javaScriptEnabled = true
-        webView?.settings?.setSupportZoom(true)
-        webView?.settings?.builtInZoomControls = true
-        webView?.settings?.displayZoomControls = false
-        webView?.settings?.useWideViewPort = true
-        webView?.settings?.loadWithOverviewMode = true
-        webView?.settings?.textZoom = 100
-        webView?.settings?.blockNetworkImage = true
-        webView?.settings?.blockNetworkLoads = true
-        webView?.settings?.domStorageEnabled = true
-        webView?.settings?.allowFileAccess = true
-        webView?.settings?.allowContentAccess = true
-        webView?.settings?.mixedContentMode = MIXED_CONTENT_ALWAYS_ALLOW
-        webView?.webChromeClient = WebChromeClient()
-        webView?.loadUrl(url)
+        val lobby_open = view?.findViewById<Button>(R.id.lobby_btn)
 
-        val clipboard: ClipboardManager = activity?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-        val fab = view?.findViewById<FloatingActionButton>(R.id.lobby_refresh)
-        fab?.setOnClickListener {
-            webView?.reload()
-            val appContext = context?.applicationContext
-            Toast.makeText(appContext, getString(R.string.refresh_hint), Toast.LENGTH_SHORT).show()
-        }
-        val fab2 = view?.findViewById<FloatingActionButton>(R.id.lobby_back)
-        fab2?.setOnClickListener {
-            webView?.goBack()
-        }
-        val fab3 = view?.findViewById<FloatingActionButton>(R.id.lobby_copy)
-        fab3?.setOnClickListener {
-            val clip: ClipData = ClipData.newPlainText("Current URL", webView?.url)
-            clipboard.setPrimaryClip(clip)
-            val appContext = context?.applicationContext
-            Toast.makeText(appContext, getString(R.string.copy_hint), Toast.LENGTH_SHORT).show()
+        lobby_open?.setOnClickListener {
+            val intent = Intent()
+            intent.action = "android.intent.action.VIEW"
+            val content_url: Uri = Uri.parse("http://ehall.szu.edu.cn/new/index.html")
+            intent.data = content_url
+            startActivity(intent)
         }
     }
 }

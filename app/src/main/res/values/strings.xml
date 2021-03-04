@@ -29,6 +29,8 @@
     <string name="kumon_campus">Campus</string>
     <string name="kumon_latest">Latest</string>
 
+    <string name="default_open">Use Default Browser Open</string>
+
     <!-- Strings related to login -->
     <string name="prompt_email">Card ID</string>
     <string name="prompt_password">Password</string>

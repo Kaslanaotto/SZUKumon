@@ -29,4 +29,5 @@
     <string name="copy_hint">链接复制成功</string>
     <string name="refresh_hint">页面刷新成功</string>
     <string name="menu_outcampus">校外访问</string>
+    <string name="default_open">使用默认浏览器打开</string>
 </resources>

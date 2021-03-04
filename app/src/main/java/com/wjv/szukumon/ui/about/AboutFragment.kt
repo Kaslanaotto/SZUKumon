@@ -3,6 +3,8 @@ package com.wjv.szukumon.ui.about
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -46,10 +48,11 @@ class AboutFragment : Fragment() {
 
         val btn_github = view?.findViewById<Button>(R.id.button_github)
         btn_github?.setOnClickListener {
-            val clip: ClipData = ClipData.newPlainText("Github", "https://github.com/Kaslanaotto/SZUKumon")
-            clipboard.setPrimaryClip(clip)
-            val appContext = context?.applicationContext
-            Toast.makeText(appContext, getString(R.string.copy_hint), Toast.LENGTH_SHORT).show()
+            val intent = Intent()
+            intent.action = "android.intent.action.VIEW"
+            val content_url: Uri = Uri.parse("https://github.com/Kaslanaotto/SZUKumon")
+            intent.data = content_url
+            startActivity(intent)
         }
         val btnUpdate = view?.findViewById<Button>(R.id.button)
         btnUpdate?.setOnClickListener {

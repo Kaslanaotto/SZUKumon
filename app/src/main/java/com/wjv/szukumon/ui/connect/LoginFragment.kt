@@ -95,6 +95,7 @@ class LoginFragment : Fragment() {
         classloginButton.setOnClickListener {
             //loginViewModel.login(usernameEditText.text.toString(), passwordEditText.text.toString())
 
+
             val retrofit = Retrofit.Builder()
                     .baseUrl("https://drcom.szu.edu.cn")
                     .build()
