@@ -1,8 +1,7 @@
 package com.wjv.szukumon.tools.connect
 
-import androidx.lifecycle.ViewModelProvider
-import androidx.fragment.app.Fragment
 import android.os.Bundle
+import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
@@ -12,6 +11,8 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Button
 import android.widget.EditText
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.wjv.szukumon.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -23,9 +24,12 @@ import retrofit2.http.FieldMap
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 
+
 class LoginFragment : Fragment() {
 
     private lateinit var loginViewModel: LoginViewModel
+    private lateinit var username: String
+    private lateinit var passwd: String
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -74,51 +78,69 @@ class LoginFragment : Fragment() {
         }
 
 
-        classloginButton.setOnClickListener {
-            //loginViewModel.login(usernameEditText.text.toString(), passwordEditText.text.toString())
 
+        val handler = Handler()
+        val autoClassLogin: Runnable = object : Runnable {
+            override fun run() {
+                val retrofit = Retrofit.Builder()
+                        .baseUrl("https://drcom.szu.edu.cn")
+                        .build()
 
-            val retrofit = Retrofit.Builder()
-                    .baseUrl("https://drcom.szu.edu.cn")
-                    .build()
+                // Create Service
+                val service = retrofit.create(APIService::class.java)
 
-            // Create Service
-            val service = retrofit.create(APIService::class.java)
+                val params = HashMap<String?, String?>()
+                params["DDDDD"] = username
+                params["upass"] = passwd
+                params["R1"] = "0"
+                params["R2"] = ""
+                params["R6"] = "0"
+                params["para"] = "00"
+                params["0MKKey"] = "123456"
+                params["buttonClicked"] = ""
+                params["redirect_url"] = ""
+                params["err_flag"] = ""
+                params["username"] = ""
+                params["password"] = ""
+                params["user"] = ""
+                params["cmd"] = ""
+                params["Login"] = ""
+                params["R7"] = "0"
 
-            val params = HashMap<String?, String?>()
-            params["DDDDD"] = usernameEditText.text.toString()
-            params["upass"] = passwordEditText.text.toString()
-            params["R1"] = "0"
-            params["R2"] = ""
-            params["R6"] = "0"
-            params["para"] = "00"
-            params["0MKKey"] = "123456"
-            params["buttonClicked"] = ""
-            params["redirect_url"] = ""
-            params["err_flag"] = ""
-            params["username"] = ""
-            params["password"] = ""
-            params["user"] = ""
-            params["cmd"] = ""
-            params["Login"] = ""
-            params["R7"] = "0"
-
-            CoroutineScope(Dispatchers.IO).launch {
-                // Do the POST request and get response
-                val response = service.createEmployee(params)
+                CoroutineScope(Dispatchers.IO).launch {
+                    // Do the POST request and get response
+                    val response = service.createEmployee(params)
+                }
+                handler.postDelayed(this, 60*1000)
             }
         }
 
+        val autoDormitoryLogin: Runnable = object : Runnable {
+            override fun run() {
+                val studentid = username
+                val pwd = passwd
+                val urlf = "https://szu.szgalaxy.com.cn/NewFiPortal3/moportal/szuLogin.do?userIp=&userMac=&macType=1&resourceId=2&areaId=1&account="
+                val urlb = "&pwd="
+                val webView = view.findViewById<WebView>(R.id.backgound_web)
+
+                webView?.webViewClient = WebViewClient()
+                webView?.loadUrl(urlf.plus(studentid).plus(urlb).plus(pwd))
+
+                handler.postDelayed(this, 60*1000)
+            }
+        }
+
+        classloginButton.setOnClickListener {
+            //loginViewModel.login(usernameEditText.text.toString(), passwordEditText.text.toString()
+            username = usernameEditText.text.toString()
+            passwd = passwordEditText.text.toString()
+            handler.post(autoClassLogin)
+        }
+
         dormitoryloginButton.setOnClickListener {
-
-            val studentid = usernameEditText.text.toString()
-            val pwd = passwordEditText.text.toString()
-            val urlf = "https://szu.szgalaxy.com.cn/NewFiPortal3/moportal/szuLogin.do?userIp=&userMac=&macType=1&resourceId=2&areaId=1&account="
-            val urlb = "&pwd="
-            val webView = view.findViewById<WebView>(R.id.backgound_web)
-
-            webView?.webViewClient = WebViewClient()
-            webView?.loadUrl(urlf.plus(studentid).plus(urlb).plus(pwd))
+            username = usernameEditText.text.toString()
+            passwd = passwordEditText.text.toString()
+            handler.post(autoDormitoryLogin)
         }
     }
 }
