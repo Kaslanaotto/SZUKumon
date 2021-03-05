@@ -1,5 +1,7 @@
 package com.wjv.szukumon.tools.connect
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
@@ -135,12 +137,24 @@ class LoginFragment : Fragment() {
             username = usernameEditText.text.toString()
             passwd = passwordEditText.text.toString()
             handler.post(autoClassLogin)
+
+            val intent = Intent()
+            intent.action = "android.intent.action.VIEW"
+            val content_url: Uri = Uri.parse("https://www.baidu.com")
+            intent.data = content_url
+            startActivity(intent)
         }
 
         dormitoryloginButton.setOnClickListener {
             username = usernameEditText.text.toString()
             passwd = passwordEditText.text.toString()
             handler.post(autoDormitoryLogin)
+
+            val intent = Intent()
+            intent.action = "android.intent.action.VIEW"
+            val content_url: Uri = Uri.parse("https://www.baidu.com")
+            intent.data = content_url
+            startActivity(intent)
         }
     }
 }
