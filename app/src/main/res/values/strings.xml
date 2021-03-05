@@ -19,6 +19,8 @@
     <string name="menu_outcampus">Out Campus Access</string>
 
     <string name="menu_connect">Campus Web Connect</string>
+    <string name="menu_schedule">Schedule</string>
+    <string name="menu_wear">Wear Setting</string>
 
     <string name="kumon_education">Education</string>
     <string name="kumon_overhead">Overhead</string>

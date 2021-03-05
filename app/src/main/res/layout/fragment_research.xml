@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.kumon.ResearchFragment">
+    tools:context=".access.kumon.ResearchFragment">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/research_refresh"

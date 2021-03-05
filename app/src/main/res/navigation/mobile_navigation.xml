@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_kumon"
-        android:name="com.wjv.szukumon.ui.home.HomeFragment"
+        android:name="com.wjv.szukumon.access.home.HomeFragment"
         android:label="@string/menu_kumon"
         tools:layout="@layout/fragment_home" >
 
@@ -39,18 +39,18 @@
 
     <fragment
         android:id="@+id/nav_feedback"
-        android:name="com.wjv.szukumon.ui.feedback.FeedbackFragment"
+        android:name="com.wjv.szukumon.others.feedback.FeedbackFragment"
         android:label="@string/menu_feedback"
         tools:layout="@layout/fragment_feedback" />
 
     <fragment
         android:id="@+id/nav_about"
-        android:name="com.wjv.szukumon.ui.about.AboutFragment"
+        android:name="com.wjv.szukumon.others.about.AboutFragment"
         android:label="@string/menu_about"
         tools:layout="@layout/fragment_about" />
     <fragment
         android:id="@+id/educationFragment"
-        android:name="com.wjv.szukumon.ui.kumon.EducationFragment"
+        android:name="com.wjv.szukumon.access.kumon.EducationFragment"
         android:label="@string/kumon_education"
         tools:layout="@layout/fragment_education" >
         <action
@@ -59,7 +59,7 @@
     </fragment>
     <fragment
         android:id="@+id/campusFragment"
-        android:name="com.wjv.szukumon.ui.kumon.CampusFragment"
+        android:name="com.wjv.szukumon.access.kumon.CampusFragment"
         android:label="@string/kumon_campus"
         tools:layout="@layout/fragment_campus" >
         <action
@@ -68,7 +68,7 @@
     </fragment>
     <fragment
         android:id="@+id/latestFragment"
-        android:name="com.wjv.szukumon.ui.kumon.LatestFragment"
+        android:name="com.wjv.szukumon.access.kumon.LatestFragment"
         android:label="@string/kumon_latest"
         tools:layout="@layout/fragment_latest" >
         <action
@@ -77,7 +77,7 @@
     </fragment>
     <fragment
         android:id="@+id/lectureFragment"
-        android:name="com.wjv.szukumon.ui.kumon.LectureFragment"
+        android:name="com.wjv.szukumon.access.kumon.LectureFragment"
         android:label="@string/kumon_lecture"
         tools:layout="@layout/fragment_lecture" >
         <action
@@ -86,7 +86,7 @@
     </fragment>
     <fragment
         android:id="@+id/overheadFragment"
-        android:name="com.wjv.szukumon.ui.kumon.OverheadFragment"
+        android:name="com.wjv.szukumon.access.kumon.OverheadFragment"
         android:label="@string/kumon_overhead"
         tools:layout="@layout/fragment_overhead" >
         <action
@@ -95,7 +95,7 @@
     </fragment>
     <fragment
         android:id="@+id/policyFragment"
-        android:name="com.wjv.szukumon.ui.kumon.PolicyFragment"
+        android:name="com.wjv.szukumon.access.kumon.PolicyFragment"
         android:label="@string/kumon_policy"
         tools:layout="@layout/fragment_policy" >
         <action
@@ -104,7 +104,7 @@
     </fragment>
     <fragment
         android:id="@+id/researchFragment"
-        android:name="com.wjv.szukumon.ui.kumon.ResearchFragment"
+        android:name="com.wjv.szukumon.access.kumon.ResearchFragment"
         android:label="@string/kumon_research"
         tools:layout="@layout/fragment_research" >
         <action
@@ -113,7 +113,7 @@
     </fragment>
     <fragment
         android:id="@+id/studentsFragment"
-        android:name="com.wjv.szukumon.ui.kumon.StudentsFragment"
+        android:name="com.wjv.szukumon.access.kumon.StudentsFragment"
         android:label="@string/kumon_students"
         tools:layout="@layout/fragment_students" >
         <action
@@ -122,38 +122,48 @@
     </fragment>
     <fragment
         android:id="@+id/nav_lobby"
-        android:name="com.wjv.szukumon.ui.lobby.LobbyFragment"
+        android:name="com.wjv.szukumon.access.lobby.LobbyFragment"
         android:label="@string/menu_lobby"
         tools:layout="@layout/fragment_lobby" />
 
     <fragment
         android:id="@+id/nav_blackboard"
-        android:name="com.wjv.szukumon.ui.blackboard.BlackBoardFragment"
+        android:name="com.wjv.szukumon.access.blackboard.BlackBoardFragment"
         android:label="@string/menu_blackboard"
         tools:layout="@layout/fragment_black_board" />
     <fragment
         android:id="@+id/nav_idcard"
-        android:name="com.wjv.szukumon.ui.idcard.IDCardFragment"
+        android:name="com.wjv.szukumon.access.idcard.IDCardFragment"
         android:label="@string/menu_idcard"
         tools:layout="@layout/fragment_idcard" />
     <fragment
         android:id="@+id/nav_lessons"
-        android:name="com.wjv.szukumon.ui.lessons.LessonsFragment"
+        android:name="com.wjv.szukumon.access.lessons.LessonsFragment"
         android:label="@string/menu_lessons"
         tools:layout="@layout/fragment_lessons" />
     <fragment
         android:id="@+id/nav_library"
-        android:name="com.wjv.szukumon.ui.library.LibraryFragment"
+        android:name="com.wjv.szukumon.access.library.LibraryFragment"
         android:label="@string/menu_library"
         tools:layout="@layout/fragment_library" />
     <fragment
         android:id="@+id/nav_connect"
-        android:name="com.wjv.szukumon.ui.connect.LoginFragment"
+        android:name="com.wjv.szukumon.tools.connect.LoginFragment"
         android:label="@string/menu_connect"
         tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/nav_outcampus"
-        android:name="com.wjv.szukumon.ui.outcampus.OutCampusFragment"
+        android:name="com.wjv.szukumon.access.outcampus.OutCampusFragment"
         android:label="@string/menu_outcampus"
         tools:layout="@layout/fragment_out_campus" />
+    <fragment
+        android:id="@+id/nav_schedule"
+        android:name="com.wjv.szukumon.tools.schedule.ScheduleFragment"
+        android:label="@string/menu_schedule"
+        tools:layout="@layout/fragment_schedule" />
+    <fragment
+        android:id="@+id/nav_wear"
+        android:name="com.wjv.szukumon.tools.wear.WearFragment"
+        android:label="@string/menu_wear"
+        tools:layout="@layout/fragment_wear" />
 </navigation>
