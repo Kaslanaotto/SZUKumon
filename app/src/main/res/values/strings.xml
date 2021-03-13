@@ -16,10 +16,11 @@
     <string name="menu_lessons">Courses</string>
     <string name="menu_library">Library</string>
     <string name="menu_idcard">ID Card</string>
+    <string name="menu_mailbox">School Mailbox</string>
     <string name="menu_outcampus">Out Campus Access</string>
 
-    <string name="menu_connect">Campus Web Connect</string>
-    <string name="menu_schedule">Schedule</string>
+    <string name="menu_connect">Campus Web Login</string>
+    <string name="menu_schedule">Class Time</string>
     <string name="menu_wear">Wear Setting</string>
 
     <string name="kumon_education">Education</string>

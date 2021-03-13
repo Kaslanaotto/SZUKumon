@@ -113,7 +113,7 @@ class LoginFragment : Fragment() {
                     // Do the POST request and get response
                     val response = service.createEmployee(params)
                 }
-                handler.postDelayed(this, 60*1000)
+                handler.postDelayed(this, 10*1000)
             }
         }
 
@@ -128,7 +128,7 @@ class LoginFragment : Fragment() {
                 webView?.webViewClient = WebViewClient()
                 webView?.loadUrl(urlf.plus(studentid).plus(urlb).plus(pwd))
 
-                handler.postDelayed(this, 60*1000)
+                handler.postDelayed(this, 10*1000)
             }
         }
 

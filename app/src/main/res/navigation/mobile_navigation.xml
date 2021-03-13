@@ -166,4 +166,9 @@
         android:name="com.wjv.szukumon.tools.wear.WearFragment"
         android:label="@string/menu_wear"
         tools:layout="@layout/fragment_wear" />
+    <fragment
+        android:id="@+id/nav_mailbox"
+        android:name="com.wjv.szukumon.access.mailbox.MailBoxFragment"
+        android:label="@string/menu_mailbox"
+        tools:layout="@layout/fragment_mail_box" />
 </navigation>

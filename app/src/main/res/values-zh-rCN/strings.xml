@@ -32,4 +32,5 @@
     <string name="default_open">使用默认浏览器打开</string>
     <string name="menu_schedule">课程表</string>
     <string name="menu_wear">手表设置</string>
+    <string name="menu_mailbox">校务信箱</string>
 </resources>
