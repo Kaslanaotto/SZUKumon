@@ -1,6 +1,7 @@
 package com.wjv.szukumon.tools.connect
 
 import android.content.Context
+import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -34,6 +35,7 @@ class LoginFragment : Fragment() {
     lateinit var username: String
     lateinit var passwd: String
 
+    /*
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
 
@@ -49,6 +51,8 @@ class LoginFragment : Fragment() {
         outState.putString("username", username)
         outState.putString("password", passwd)
     }
+    */
+
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -72,6 +76,7 @@ class LoginFragment : Fragment() {
         val passwordEditText = view.findViewById<EditText>(R.id.password)
         val classloginButton = view.findViewById<Button>(R.id.classroom_login)
         val dormitoryloginButton = view.findViewById<Button>(R.id.dormitory_login)
+        val rememberCheckBox = view.findViewById<CheckBox>(R.id.rememberPass)
 
         /*
         val rememberPass = view.findViewById<CheckBox>(R.id.rememberPass)
@@ -82,8 +87,16 @@ class LoginFragment : Fragment() {
         }
         */
 
-        usernameEditText?.setText(savedInstanceState?.getString("username"))
-        passwordEditText?.setText(savedInstanceState?.getString("password"))
+
+        val prefs = this.activity?.getSharedPreferences("remember", MODE_PRIVATE)
+        val isRemember = prefs?.getBoolean("remember_password",false)
+        if(isRemember == true) {
+            val account=prefs?.getString("username","")
+            val password=prefs?.getString("password","")
+            usernameEditText?.setText(account)
+            passwordEditText?.setText(password)
+            rememberCheckBox.isChecked = true
+        }
 
         val handler = Handler()
         val autoClassLogin: Runnable = object : Runnable {
@@ -117,7 +130,7 @@ class LoginFragment : Fragment() {
                     // Do the POST request and get response
                     val response = service.createEmployee(params)
                 }
-                handler.postDelayed(this, 10*1000)
+                handler.postDelayed(this, 10 * 1000)
             }
         }
 
@@ -132,13 +145,20 @@ class LoginFragment : Fragment() {
                 webView?.webViewClient = WebViewClient()
                 webView?.loadUrl(urlf.plus(studentid).plus(urlb).plus(pwd))
 
-                handler.postDelayed(this, 10*1000)
+                handler.postDelayed(this, 10 * 1000)
             }
         }
 
         classloginButton.setOnClickListener {
             //loginViewModel.login(usernameEditText.text.toString(), passwordEditText.text.toString()
 
+            val editor = this.activity?.getSharedPreferences("remember", MODE_PRIVATE)?.edit()
+            if(rememberCheckBox.isChecked) {
+                editor?.putBoolean("remember_password",true)
+                editor?.putString("username", usernameEditText?.text.toString())
+                editor?.putString("password", passwordEditText?.text.toString())
+                editor?.apply()
+            }
             username = usernameEditText.text.toString()
             passwd = passwordEditText.text.toString()
             /*
@@ -162,6 +182,13 @@ class LoginFragment : Fragment() {
 
         dormitoryloginButton.setOnClickListener {
 
+            val editor = this.activity?.getSharedPreferences("remember", MODE_PRIVATE)?.edit()
+            if(rememberCheckBox.isChecked) {
+                editor?.putBoolean("remember_password",true)
+                editor?.putString("username", usernameEditText?.text.toString())
+                editor?.putString("password", passwordEditText?.text.toString())
+                editor?.apply()
+            }
             username = usernameEditText.text.toString()
             passwd = passwordEditText.text.toString()
             /*
