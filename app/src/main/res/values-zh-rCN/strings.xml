@@ -33,4 +33,5 @@
     <string name="menu_schedule">课程表</string>
     <string name="menu_wear">手表设置</string>
     <string name="menu_mailbox">校务信箱</string>
+    <string name="save_info">记住密码</string>
 </resources>

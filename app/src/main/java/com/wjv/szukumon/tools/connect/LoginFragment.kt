@@ -1,17 +1,17 @@
 package com.wjv.szukumon.tools.connect
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -30,8 +30,25 @@ import retrofit2.http.POST
 class LoginFragment : Fragment() {
 
     private lateinit var loginViewModel: LoginViewModel
-    private lateinit var username: String
-    private lateinit var passwd: String
+
+    lateinit var username: String
+    lateinit var passwd: String
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        val usernameEditText = view?.findViewById<EditText>(R.id.username)
+        val passwordEditText = view?.findViewById<EditText>(R.id.password)
+        //val prefs = activity?.getPreferences(Context.MODE_PRIVATE)
+        //val username = prefs?.getString("username","")
+        //val password = prefs?.getString("password","")
+
+        username = usernameEditText?.text.toString()
+        passwd = passwordEditText?.text.toString()
+
+        outState.putString("username", username)
+        outState.putString("password", passwd)
+    }
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -42,13 +59,9 @@ class LoginFragment : Fragment() {
     }
 
     interface APIService {
-        // ...
-
         @FormUrlEncoded
         @POST("/a70.htm?isReback=1")
         suspend fun createEmployee(@FieldMap params: HashMap<String?, String?>): Response<ResponseBody>
-
-        // ...
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -60,26 +73,17 @@ class LoginFragment : Fragment() {
         val classloginButton = view.findViewById<Button>(R.id.classroom_login)
         val dormitoryloginButton = view.findViewById<Button>(R.id.dormitory_login)
 
-        val afterTextChangedListener = object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
-                // ignore
-            }
-
-            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                // ignore
-            }
-
-            override fun afterTextChanged(s: Editable) {
-                // ignore
-            }
+        /*
+        val rememberPass = view.findViewById<CheckBox>(R.id.rememberPass)
+        val prefs = activity?.getPreferences(Context.MODE_PRIVATE)
+        val isRemember = prefs?.getBoolean("remember_password",false)
+        if(isRemember == true){
+            rememberPass?.isChecked = true
         }
-        usernameEditText.addTextChangedListener(afterTextChangedListener)
-        passwordEditText.addTextChangedListener(afterTextChangedListener)
-        passwordEditText.setOnEditorActionListener { _, actionId, _ ->
-            false
-        }
+        */
 
-
+        usernameEditText?.setText(savedInstanceState?.getString("username"))
+        passwordEditText?.setText(savedInstanceState?.getString("password"))
 
         val handler = Handler()
         val autoClassLogin: Runnable = object : Runnable {
@@ -134,8 +138,19 @@ class LoginFragment : Fragment() {
 
         classloginButton.setOnClickListener {
             //loginViewModel.login(usernameEditText.text.toString(), passwordEditText.text.toString()
+
             username = usernameEditText.text.toString()
             passwd = passwordEditText.text.toString()
+            /*
+            val editor = prefs?.edit()
+            if(rememberPass.isChecked){
+                editor?.putBoolean("remember_password", true)
+                editor?.putString("username", username)
+                editor?.putString("password", passwd)
+            } else {
+                editor?.clear()
+            }
+            */
             handler.post(autoClassLogin)
 
             val intent = Intent()
@@ -146,8 +161,19 @@ class LoginFragment : Fragment() {
         }
 
         dormitoryloginButton.setOnClickListener {
+
             username = usernameEditText.text.toString()
             passwd = passwordEditText.text.toString()
+            /*
+            val editor = prefs?.edit()
+            if(rememberPass.isChecked){
+                editor?.putBoolean("remember_password", true)
+                editor?.putString("username", username)
+                editor?.putString("password", passwd)
+            } else {
+                editor?.clear()
+            }
+            */
             handler.post(autoDormitoryLogin)
 
             val intent = Intent()

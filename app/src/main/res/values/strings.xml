@@ -19,7 +19,7 @@
     <string name="menu_mailbox">School Mailbox</string>
     <string name="menu_outcampus">Out Campus Access</string>
 
-    <string name="menu_connect">Campus Web Login</string>
+    <string name="menu_connect">Web Login</string>
     <string name="menu_schedule">Class Time</string>
     <string name="menu_wear">Wear Setting</string>
 
@@ -37,6 +37,7 @@
     <!-- Strings related to login -->
     <string name="prompt_email">Card ID</string>
     <string name="prompt_password">Password</string>
+    <string name="save_info">Remember Password</string>
     <string name="classroom_sign_in">Classroom Login</string>
     <string name="dormitory_sign_in">Dormitory Login</string>
     <string name="action_sign_in_short" translatable="false">Sign in</string>

@@ -37,7 +37,7 @@ class ScheduleFragment : Fragment() {
         // TODO: Use the ViewModel
 
         val webView = view?.findViewById<WebView>(R.id.schedule_web)
-        val url = "http://ehall.szu.edu.cn/jwapp/sys/wdkb/*default/index.do?t_s=1615600356803"
+        val url = "http://ehall.szu.edu.cn/appShow?appId=4770397878132218"
         webView?.settings?.javaScriptEnabled = true
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             webView?.settings?.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
