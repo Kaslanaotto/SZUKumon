@@ -54,10 +54,11 @@ class AboutFragment : Fragment() {
         }
         val btnUpdate = view?.findViewById<Button>(R.id.button)
         btnUpdate?.setOnClickListener {
-            val clip: ClipData = ClipData.newPlainText("Link", "链接:https://pan.baidu.com/s/17YMKNoGFBf7c16VY-RUIlg 提取码:6p1m")
-            clipboard.setPrimaryClip(clip)
-            val appContext = context?.applicationContext
-            Toast.makeText(appContext, "打开手机百度网盘查看分享", Toast.LENGTH_LONG).show()
+            val intent = Intent()
+            intent.action = "android.intent.action.VIEW"
+            val content_url: Uri = Uri.parse("https://github.com/Kaslanaotto/SZUKumon/releases/latest")
+            intent.data = content_url
+            startActivity(intent)
         }
     }
 }

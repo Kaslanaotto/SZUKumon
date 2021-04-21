@@ -171,4 +171,9 @@
         android:name="com.wjv.szukumon.access.mailbox.MailBoxFragment"
         android:label="@string/menu_mailbox"
         tools:layout="@layout/fragment_mail_box" />
+    <fragment
+        android:id="@+id/nav_epidemic"
+        android:name="com.wjv.szukumon.access.epidemic.EpidemicFragment"
+        android:label="@string/menu_epidemic"
+        tools:layout="@layout/fragment_epidemic" />
 </navigation>

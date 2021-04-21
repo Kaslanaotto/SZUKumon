@@ -36,6 +36,10 @@
                     android:icon="@drawable/ic_baseline_email_24"
                     android:title="@string/menu_mailbox" />
                 <item
+                    android:id="@+id/nav_epidemic"
+                    android:icon="@drawable/ic_baseline_coronavirus_24"
+                    android:title="@string/menu_epidemic" />
+                <item
                     android:id="@+id/nav_outcampus"
                     android:icon="@drawable/ic_baseline_vpn_key_24"
                     android:title="@string/menu_outcampus" />

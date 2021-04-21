@@ -35,25 +35,6 @@ class LoginFragment : Fragment() {
     lateinit var username: String
     lateinit var passwd: String
 
-    /*
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-
-        val usernameEditText = view?.findViewById<EditText>(R.id.username)
-        val passwordEditText = view?.findViewById<EditText>(R.id.password)
-        //val prefs = activity?.getPreferences(Context.MODE_PRIVATE)
-        //val username = prefs?.getString("username","")
-        //val password = prefs?.getString("password","")
-
-        username = usernameEditText?.text.toString()
-        passwd = passwordEditText?.text.toString()
-
-        outState.putString("username", username)
-        outState.putString("password", passwd)
-    }
-    */
-
-
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -77,16 +58,6 @@ class LoginFragment : Fragment() {
         val classloginButton = view.findViewById<Button>(R.id.classroom_login)
         val dormitoryloginButton = view.findViewById<Button>(R.id.dormitory_login)
         val rememberCheckBox = view.findViewById<CheckBox>(R.id.rememberPass)
-
-        /*
-        val rememberPass = view.findViewById<CheckBox>(R.id.rememberPass)
-        val prefs = activity?.getPreferences(Context.MODE_PRIVATE)
-        val isRemember = prefs?.getBoolean("remember_password",false)
-        if(isRemember == true){
-            rememberPass?.isChecked = true
-        }
-        */
-
 
         val prefs = this.activity?.getSharedPreferences("remember", MODE_PRIVATE)
         val isRemember = prefs?.getBoolean("remember_password",false)
@@ -150,8 +121,6 @@ class LoginFragment : Fragment() {
         }
 
         classloginButton.setOnClickListener {
-            //loginViewModel.login(usernameEditText.text.toString(), passwordEditText.text.toString()
-
             val editor = this.activity?.getSharedPreferences("remember", MODE_PRIVATE)?.edit()
             if(rememberCheckBox.isChecked) {
                 editor?.putBoolean("remember_password",true)
@@ -161,16 +130,7 @@ class LoginFragment : Fragment() {
             }
             username = usernameEditText.text.toString()
             passwd = passwordEditText.text.toString()
-            /*
-            val editor = prefs?.edit()
-            if(rememberPass.isChecked){
-                editor?.putBoolean("remember_password", true)
-                editor?.putString("username", username)
-                editor?.putString("password", passwd)
-            } else {
-                editor?.clear()
-            }
-            */
+
             handler.post(autoClassLogin)
 
             val intent = Intent()
@@ -191,16 +151,7 @@ class LoginFragment : Fragment() {
             }
             username = usernameEditText.text.toString()
             passwd = passwordEditText.text.toString()
-            /*
-            val editor = prefs?.edit()
-            if(rememberPass.isChecked){
-                editor?.putBoolean("remember_password", true)
-                editor?.putString("username", username)
-                editor?.putString("password", passwd)
-            } else {
-                editor?.clear()
-            }
-            */
+
             handler.post(autoDormitoryLogin)
 
             val intent = Intent()

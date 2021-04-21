@@ -34,4 +34,5 @@
     <string name="menu_wear">手表设置</string>
     <string name="menu_mailbox">校务信箱</string>
     <string name="save_info">记住密码</string>
+    <string name="menu_epidemic">疫情防控平台</string>
 </resources>

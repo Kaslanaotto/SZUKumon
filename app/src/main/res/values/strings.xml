@@ -3,7 +3,7 @@
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
     <string name="nav_header_title">SZUKumon</string>
-    <string name="nav_header_subtitle" translatable="false">www.szu.edu.cn</string>
+    <string name="nav_header_subtitle" translatable="false">Version: 1.8.0.0421</string>
     <string name="nav_header_desc" translatable="false">Navigation header</string>
     <string name="action_copy">Copy Link</string>
     <string name="action_refresh">Refresh</string>
@@ -18,6 +18,7 @@
     <string name="menu_idcard">ID Card</string>
     <string name="menu_mailbox">School Mailbox</string>
     <string name="menu_outcampus">Out Campus Access</string>
+    <string name="menu_epidemic">Epidemic PC Platform</string>
 
     <string name="menu_connect">Web Login</string>
     <string name="menu_schedule">Class Time</string>
